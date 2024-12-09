@@ -1,1 +1,48 @@
-.venv
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+
+# Virtual environment
+.venv/
+env/
+venv/
+
+# Logs
+*.log
+
+# Results and outputs
+results/
+*.txt
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# IDE and editor-specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# Dependency files
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Matplotlib cache
+.matplotlib/
+
+# Other Python files
+*.ipynb_checkpoints
+
+# Cache files
+*.cache/
+*.pytest_cache/
+
+# Environmental and sensitive files
+.env
+.env.local

@@ -1,6 +1,6 @@
 
 
-from MKP import MKP1, MKP2, MKP3, MKP4, MKP5, MKP6, MKP7, MKP8, MKP9, MKP10
+from ..problems.MKP import MKP1, MKP2, MKP3, MKP4, MKP5, MKP6, MKP7, MKP8, MKP9, MKP10
 
 # Mapping problem names to functions
 def select_problem():
