@@ -29,6 +29,8 @@ def particle_swarm_optimization_binary(func, N, D,Tmax, step):
         inertia_weight = 0.9 - 0.5 * iteration / Tmax   #Ce poids contrôle combien la vitesse précédente influence le mouvement actuel de la particule.Il diminue progressivement au fil des itérations.
 
         r1 = np.random.uniform(0, 1, (N, D))
+        # r1 =  2
+        # r2 = 2
         r2 = np.random.uniform(0, 1, (N, D))
 
         cognitive = 1.5 * r1 * (personal_best_positions - positions)   #Encourage chaque particule à se rapprocher de sa meilleure solution personnelle.
