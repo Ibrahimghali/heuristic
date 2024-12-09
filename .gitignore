@@ -12,9 +12,6 @@ venv/
 # Logs
 *.log
 
-# Results and outputs
-results/
-*.txt
 
 # Operating system files
 .DS_Store
