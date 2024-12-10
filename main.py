@@ -4,8 +4,10 @@ from heuristic.algorithms.genetic_algorithm_with_local_search import genetic_alg
 from heuristic.algorithms.particle_swarm_optimization_binary_with_local_search import particle_swarm_optimization_binary_with_local_search
 from heuristic.algorithms.genetic_algorithm import genetic_algorithm
 from heuristic.algorithms.particle_swarm_optimization_binary import particle_swarm_optimization_binary
-from heuristic.algorithms.simulated_annealing1 import simulated_annealing_binary1
-from heuristic.algorithms.simulated_annealing2 import simulated_annealing_binary2
+# from heuristic.algorithms.simulated_annealing1 import simulated_annealing_binary1
+from heuristic.algorithms.hybrid_ga_pso_with_local_search import hybrid_ga_pso_with_local_search
+
+#from heuristic.algorithms.simulated_annealing2 import simulated_annealing_binary2
 import numpy as np
 import matplotlib.pyplot as plt
 import os
@@ -71,8 +73,8 @@ if __name__ == "__main__":
         "PSO_LS": particle_swarm_optimization_binary_with_local_search,
         "GA": genetic_algorithm,
         "GA_LS": genetic_algorithm_with_local_search,
-        "SA1":simulated_annealing_binary1,
-        "SA2":simulated_annealing_binary2
+        "SA1":hybrid_ga_pso_with_local_search,
+        # "SA2":simulated_annealing_binary2
     }
 
     results_dict = {}
