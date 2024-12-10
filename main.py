@@ -59,7 +59,7 @@ if __name__ == "__main__":
 
     # Global parameters
     Tmax = 1000
-    step = 10
+    step = 20
     N = 30
     test_runs = 30
     results_dir = "./results"

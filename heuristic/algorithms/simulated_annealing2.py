@@ -1,4 +1,6 @@
+from decimal import Decimal
 import numpy as np
+import time
 
 def simulated_annealing_binary2(func, N, D, Tmax, step, initial_temp=1000, alpha=0.98):
     """
@@ -6,10 +8,10 @@ def simulated_annealing_binary2(func, N, D, Tmax, step, initial_temp=1000, alpha
     """
     # Initialisation aléatoire de la solution
     current_solution = np.random.randint(2, size=D)
-    current_cost = func(current_solution)
+    current_cost = Decimal(func(current_solution))
 
     # Initialisation de la température
-    temperature = initial_temp
+    temperature = Decimal(initial_temp)
     best_solution = current_solution.copy()
     best_cost = current_cost
 
@@ -23,7 +25,7 @@ def simulated_annealing_binary2(func, N, D, Tmax, step, initial_temp=1000, alpha
         flip_index = np.random.randint(D)
         new_solution[flip_index] = 1 - new_solution[flip_index]  # Inverser un bit aléatoire
 
-        new_cost = func(new_solution)
+        new_cost = Decimal(func(new_solution))
 
         # Calcul de la différence de coût
         delta_cost = new_cost - current_cost
@@ -39,7 +41,7 @@ def simulated_annealing_binary2(func, N, D, Tmax, step, initial_temp=1000, alpha
                 best_cost = current_cost
 
         # Diminution de la température
-        temperature *= alpha
+        temperature *= Decimal(alpha)
 
         # Enregistrement des résultats à chaque étape définie
         if (iteration + 1) % step == 0:

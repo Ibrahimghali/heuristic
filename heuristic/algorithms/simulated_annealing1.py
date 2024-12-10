@@ -1,48 +1,49 @@
+from decimal import Decimal
 import numpy as np
 
-def simulated_annealing_binary1(func, N, D, Tmax, step, initial_temp=1000, alpha=0.95):
+def simulated_annealing_binary1(func, N, D, Tmax, step, initial_temp=Decimal("1000"), alpha=Decimal("0.9")):
     """
-    Simulated Annealing pour le problème de sac à dos binaire avec la fonction MKP1.
+    Simulated Annealing for the binary knapsack problem using Decimal.
     """
-    # Initialisation aléatoire de la solution
+    # Random initialization of the solution
     current_solution = np.random.randint(2, size=D)
-    current_cost = func(current_solution)
+    current_cost = Decimal(func(current_solution))
 
-    # Initialisation de la température
+    # Initial temperature
     temperature = initial_temp
     best_solution = current_solution.copy()
     best_cost = current_cost
 
-    # Liste des résultats pour chaque itération
+    # List to store results at each step
     results = []
 
-    # Boucle principale du recuit simulé
+    # Main loop of simulated annealing
     for iteration in range(Tmax):
-        # Générer une nouvelle solution voisine (voisinage binaire)
+        # Generate a new solution (binary neighborhood)
         new_solution = current_solution.copy()
         flip_index = np.random.randint(D)
-        new_solution[flip_index] = 1 - new_solution[flip_index]  # Inverser un bit aléatoire
+        new_solution[flip_index] = 1 - new_solution[flip_index]  # Flip a random bit
 
-        new_cost = func(new_solution)
+        new_cost = Decimal(func(new_solution))
 
-        # Calcul de la différence de coût
+        # Calculate cost difference
         delta_cost = new_cost - current_cost
 
-        # Critère d'acceptation
-        if delta_cost < 0 or np.random.rand() < np.exp(-delta_cost / temperature):
-            current_solution = new_solution.copy()
+        # Acceptance criterion
+        if delta_cost < 0 or Decimal(np.random.rand()) < (-delta_cost / temperature).exp():
+            current_solution = new_solution
             current_cost = new_cost
 
-            # Mise à jour de la meilleure solution trouvée
+            # Update the best solution
             if current_cost < best_cost:
-                best_solution = current_solution.copy()
+                best_solution = current_solution
                 best_cost = current_cost
 
-        # Diminution de la température
+        # Reduce the temperature
         temperature *= alpha
 
-        # Enregistrement des résultats à chaque étape définie
+        # Record the best cost at each step
         if (iteration + 1) % step == 0:
-            results.append(-best_cost)
+            results.append(-best_cost)  # Record the negative best cost for minimization problems
 
     return results
