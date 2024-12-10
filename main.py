@@ -73,7 +73,7 @@ if __name__ == "__main__":
         "PSO_LS": particle_swarm_optimization_binary_with_local_search,
         "GA": genetic_algorithm,
         "GA_LS": genetic_algorithm_with_local_search,
-        "SA1":hybrid_ga_pso_with_local_search,
+        "HGPL":hybrid_ga_pso_with_local_search,
         # "SA2":simulated_annealing_binary2
     }
 
