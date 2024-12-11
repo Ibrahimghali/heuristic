@@ -19,8 +19,17 @@ def harmony_search(func, N, D, Tmax, step, HMS=10, HMCR=0.9, PAR=0.3, BW=0.01):
     :param BW: Bande de réglage (Bandwidth) utilisée pour l'ajustement de pas.
     :return:
         - results: Liste des meilleures valeurs de la fonction objectif à chaque intervalle `step`.
-        - global_best_solution: Meilleure solution trouvée pendant l'algorithme.
-        - global_best_cost: Meilleur coût associé à la meilleure solution.
+    
+    
+    Algorithme de Recherche Harmonique (HS) :
+    L'algorithme s'inspire de l'improvisation musicale, où les solutions sont considérées comme des "notes" 
+    et la mémoire des bonnes solutions ("harmony memory") est améliorée de manière itérative. 
+    Le processus consiste à générer de nouvelles solutions en combinant des éléments des solutions existantes 
+    (en utilisant le Taux de Considération de la Mémoire Harmonique - HMCR), en les ajustant légèrement 
+    (Taux d'Ajustement de Pas - PAR), ou en créant entièrement de nouvelles solutions aléatoires. 
+    Les meilleures solutions remplacent les pires dans la mémoire, et le processus se répète jusqu'à atteindre 
+    le nombre maximal d'itérations ou un autre critère d'arrêt.
+    
     """
     # Initialiser la mémoire harmonique avec HMS solutions générées aléatoirement
     harmony_memory = np.random.randint(0, 2, size=(HMS, D))  # Matrice HMS x D (binaire : 0 ou 1)

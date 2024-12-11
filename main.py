@@ -8,9 +8,7 @@ from heuristic.algorithms.hybrid_ga_pso_with_local_search import hybrid_ga_pso_w
 from heuristic.algorithms.enhanced_hybrid_ga_pso import improved_hybrid_ga_pso
 from heuristic.algorithms.cuckoo_search_binary import cuckoo_search_binary
 from heuristic.algorithms.harmony_search import harmony_search
-
 import matplotlib.pyplot as plt
-
 import os
 import numpy as np 
 
@@ -72,7 +70,7 @@ if __name__ == "__main__":
 
     # Algorithm execution
     algorithms = {
-        #"HGP_LS": hybrid_ga_pso_with_local_search,
+        
         "IHGP": improved_hybrid_ga_pso,
         "CUCKOO": cuckoo_search_binary,
         "PSO": particle_swarm_optimization_binary,
