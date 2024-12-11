@@ -4,13 +4,16 @@ from heuristic.algorithms.genetic_algorithm_with_local_search import genetic_alg
 from heuristic.algorithms.particle_swarm_optimization_binary_with_local_search import particle_swarm_optimization_binary_with_local_search
 from heuristic.algorithms.genetic_algorithm import genetic_algorithm
 from heuristic.algorithms.particle_swarm_optimization_binary import particle_swarm_optimization_binary
-# from heuristic.algorithms.simulated_annealing1 import simulated_annealing_binary1
 from heuristic.algorithms.hybrid_ga_pso_with_local_search import hybrid_ga_pso_with_local_search
+from heuristic.algorithms.enhanced_hybrid_ga_pso import improved_hybrid_ga_pso
+from heuristic.algorithms.cuckoo_search_binary import cuckoo_search_binary
+from heuristic.algorithms.harmony_search import harmony_search
 
-#from heuristic.algorithms.simulated_annealing2 import simulated_annealing_binary2
-import numpy as np
 import matplotlib.pyplot as plt
+
 import os
+import numpy as np 
+
 
 matplotlib.use('TkAgg')  # Use an interactive backend like 'TkAgg'
 
@@ -69,12 +72,15 @@ if __name__ == "__main__":
 
     # Algorithm execution
     algorithms = {
+        #"HGP_LS": hybrid_ga_pso_with_local_search,
+        "IHGP": improved_hybrid_ga_pso,
+        "CUCKOO": cuckoo_search_binary,
         "PSO": particle_swarm_optimization_binary,
         "PSO_LS": particle_swarm_optimization_binary_with_local_search,
         "GA": genetic_algorithm,
         "GA_LS": genetic_algorithm_with_local_search,
-        "HGPL":hybrid_ga_pso_with_local_search,
-        # "SA2":simulated_annealing_binary2
+        "HS" : harmony_search
+       
     }
 
     results_dict = {}
